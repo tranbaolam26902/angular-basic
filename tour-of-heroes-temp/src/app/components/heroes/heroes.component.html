@@ -1,0 +1,18 @@
+<h3>My Heroes</h3>
+
+<form (ngSubmit)="handleAdd(name)">
+    <label for="name">Hero name:</label>
+    <input type="text" id="name" name="name" #name />
+    <button type="submit">Add hero</button>
+</form>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{ hero.id }}">
+            <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+        </a>
+        <button type="button" class="delete" title="delete hero" (click)="handleDelete(hero)">
+            x
+        </button>
+    </li>
+</ul>

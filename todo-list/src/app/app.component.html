@@ -1,0 +1,18 @@
+<h1>TODO LIST</h1>
+
+<form [formGroup]="todoForm" (ngSubmit)="handleSubmit(title)">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title" #title autofocus />
+    <button type="submit" [disabled]="todoForm.invalid">Add</button>
+</form>
+
+<ul>
+    @for (todoItem of todoItems; track todoItem.id) {
+    <li [id]="todoItem.id">
+        <input type="checkbox" [id]="todoItem.id + todoItem.title" (change)="handleChange(todoItem.id)" /><label
+            [for]="todoItem.id + todoItem.title">{{
+            todoItem.title
+            }}</label><button (click)="handleRemove(todoItem.id)">&times;</button>
+    </li>
+    }
+</ul>

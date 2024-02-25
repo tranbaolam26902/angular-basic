@@ -1,0 +1,16 @@
+<div *ngIf="hero">
+    <h3>{{ hero.name.toUpperCase() }} Details</h3>
+
+    <div>
+        <label>Id:</label>
+        <span>{{ hero.id }}</span>
+    </div>
+
+    <div>
+        <label for="name">Hero name:</label>
+        <input type="text" name="name" [value]="hero.name" #heroName />
+    </div>
+
+    <button type="button" (click)="goBack()">Back</button>
+    <button type="button" (click)="handleSave(heroName.value)">Save</button>
+</div>
